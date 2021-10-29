@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth/useAuth';
 
 const Header = () => {
     const { user, logout } = useAuth();
+
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -19,8 +20,10 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link to="/home">Home</Nav.Link>
-                        <Nav.Link href="#action2">Link</Nav.Link>
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                        {user?.email && <Nav.Link as={Link} to="/myOrders">My Orders</Nav.Link>}
+                        {user?.email && <Nav.Link as={Link} to="/manageAllOrders">Manage All Orders</Nav.Link>}
+                        {user?.email && <Nav.Link as={Link} to="/addNewService">Add a new service</Nav.Link>}
 
 
                     </Nav>

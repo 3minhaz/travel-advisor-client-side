@@ -4,6 +4,11 @@ import NotFound from './components/NotFound/NotFound';
 import Header from './components/shared/Header/Header';
 import Login from './components/Login/Login';
 import AuthProvider from './components/AuthProvider/AuthProvider';
+import Home from './components/home/Home/Home';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ManageAllOrders from './components/shared/ManageAllOrders/ManageAllOrders';
+import AddNewService from './components/shared/AddNewService/AddNewService';
+import MyOrders from './components/shared/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -12,13 +17,24 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
-
             <Route exact path='/'>
-
+              <Home></Home>
+            </Route>
+            <Route path='/home'>
+              <Home></Home>
             </Route>
             <Route path='/login'>
               <Login></Login>
             </Route>
+            <PrivateRoute path='/myOrders'>
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path='/manageAllOrders'>
+              <ManageAllOrders></ManageAllOrders>
+            </PrivateRoute>
+            <PrivateRoute path='/addNewService'>
+              <AddNewService></AddNewService>
+            </PrivateRoute>
 
             <Route path='*'>
               <NotFound></NotFound>
