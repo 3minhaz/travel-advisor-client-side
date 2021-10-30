@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import useAuth from '../hooks/useAuth/useAuth';
 
 const PlaceOrder = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { user } = useAuth();
+    const { register, handleSubmit, reset } = useForm();
+
     const { id } = useParams();
     const [details, setDetails] = useState({});
     useEffect(() => {
@@ -12,7 +14,29 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
-    console.log(details);
+
+    const onSubmit = data => {
+        data.email = user.email;
+        data.offer = details.offer;
+        data.location = details.location;
+        // console.log(data);
+        fetch(`http://localhost:5000/booking`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert('booking successfully done, please got to my orders to check your order')
+                    reset();
+                }
+            })
+    };
+
     return (
         <div className="row row-cols-md m-4">
             <div className="col-md-6 col-sm-12">
@@ -24,9 +48,12 @@ const PlaceOrder = () => {
             <div className="col-md-6 col-sm-12 ">
                 <h3>Give your information and place order to book</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("firstName")} />
+                    <input defaultValue={user.displayName} {...register("Name")} className="m-2 w-50" placeholder="Enter your name" /> <br />
+                    <input defaultValue={user.email} {...register("email_add_by_user")} className="m-2 w-50" placeholder="Enter your name" /> <br />
+                    <input {...register("address")} className="w-50 m-2" placeholder="Your Address" /> <br />
+                    <input {...register("mobile")} type="number" className="m-2 w-50" placeholder="contact no" /> <br />
 
-                    <input type="submit" value="Place Order" />
+                    <input type="submit" value="Book now" className="m-2" />
                 </form>
             </div>
         </div>
