@@ -1,18 +1,37 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import useAuth from '../../hooks/useAuth/useAuth';
 
 const AddNewService = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { user } = useAuth();
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        const userInfo = data;
+        userInfo.email = user.email;
+
+        fetch(`http://localhost:5000/addNewService`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('data inserted successfully');
+                    reset();
+                }
+            });
+    };
     return (
-        <div>
+        <div className="text-center">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("firstName")} />
-                <select {...register("gender")}>
-                    <option value="female">female</option>
-                    <option value="male">male</option>
-                    <option value="other">other</option>
-                </select>
+                <input placeholder="image-url" className="w-25 my-3"{...register("img")} required /> <br />
+                <input placeholder="offer name" className="w-25"{...register("offer")} required /> <br />
+                <input placeholder="location" className="w-25 my-3 " {...register("location")} required /> <br />
+                <textarea placeholder="details" className="w-25" {...register("details")} required /> <br />
+
                 <input type="submit" />
             </form>
         </div>
