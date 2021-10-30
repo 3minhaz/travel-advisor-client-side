@@ -4,12 +4,12 @@ const ManageAllOrders = () => {
     const [services, setServices] = useState([]);
     const [isDeleted, setIsDeleted] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/manageAllOrders')
+        fetch('https://thawing-sands-06340.herokuapp.com/manageAllOrders')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [isDeleted])
     const handleServiceDelete = id => {
-        fetch(`http://localhost:5000/manageService/${id}`, {
+        fetch(`https://thawing-sands-06340.herokuapp.com/manageService/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

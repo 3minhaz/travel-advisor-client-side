@@ -9,7 +9,7 @@ const AddNewService = () => {
         const userInfo = data;
         userInfo.email = user.email;
 
-        fetch(`http://localhost:5000/addNewService`, {
+        fetch(`https://thawing-sands-06340.herokuapp.com/addNewService`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

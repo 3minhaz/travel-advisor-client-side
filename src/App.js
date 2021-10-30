@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ManageAllOrders from './components/shared/ManageAllOrders/ManageAllOrders';
 import AddNewService from './components/shared/AddNewService/AddNewService';
 import MyOrders from './components/shared/MyOrders/MyOrders';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/addNewService'>
               <AddNewService></AddNewService>
+            </PrivateRoute>
+            <PrivateRoute path='/placeOrder/:id'>
+              <PlaceOrder></PlaceOrder>
             </PrivateRoute>
 
             <Route path='*'>
