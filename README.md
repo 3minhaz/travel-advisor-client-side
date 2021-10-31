@@ -1,6 +1,6 @@
 # Getting Started with BD Travellers website
 
-This project was bootstrapped with [click to go live site](https://travel-advisor-8da65.web.app/).
+This project was bootstrapped with [click to go to live site](https://travel-advisor-8da65.web.app/).
 
 ## Project Description
 - project is implement under react,node,express js,mongodb environment
