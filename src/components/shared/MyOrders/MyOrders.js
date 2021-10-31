@@ -41,7 +41,7 @@ const MyOrders = () => {
                 key={booking._id}
             >
                 {console.log(booking)}
-                <img className="w-75" src={booking.details.img} alt="" />
+                <img className="w-75 h-50" src={booking.details.img} alt="" />
                 <p>{booking._id}</p>
                 <p>{booking.details.offer}</p>
                 <p>status: {booking.status}</p>
