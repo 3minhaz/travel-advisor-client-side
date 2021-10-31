@@ -63,17 +63,7 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <h2>Total offer: {services.length}</h2>
-            {/* {
-                services.map((service, index) => <div
-                    key={service._id}
-                    className="d-flex align-items-center mx-5 mb-3">
-                    <span className="w-50">serial: {index + 1}</span>
-                    <h2 className="mx-3 w-75">offer:{service.offer}</h2>
-                    <p className="mx-3 w-50">Location: {service.location}</p>
-                    <button className="btn btn-danger h-50 ms-3" onClick={() => handleServiceDelete(service._id)}>Delete</button>
-                </div>)
-            } */}
+            <h2 className="text-center my-3">Total Orders: {manageOrders.length}</h2>
             <div>
                 {manageOrders.map((order, index) => <div
                     key={order._id}

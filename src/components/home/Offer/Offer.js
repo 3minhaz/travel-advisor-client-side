@@ -12,8 +12,8 @@ const Offer = () => {
     }, [])
     return (
 
-        <div className="row row-cols-md m-5 g-3">
-
+        <div id="offer" className="row row-cols-md m-5 g-3">
+            <h2>Our offers</h2>
             {
                 offers.map(offer =>
                     <div
@@ -22,7 +22,7 @@ const Offer = () => {
                         <img height='300px' className="w-100 " src={offer.img} alt="" />
                         <h3>{offer.location}</h3>
                         <p>{offer?.details.slice(0, 40)}...</p>
-                        <Link to={`/placeOrder/${offer?._id}`}><button>Book now</button></Link>
+                        <Link to={`/placeOrder/${offer?._id}`}><button style={{ backgroundColor: "#0071c2", border: 'none', borderRadius: '6px', padding: '4px 8px', color: "white" }}>Book now</button></Link>
                     </div>
                 )
             }

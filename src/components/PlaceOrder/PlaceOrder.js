@@ -54,7 +54,7 @@ const PlaceOrder = () => {
                     <input {...register("address")} className="w-50 m-2" placeholder="Your Address" /> <br />
                     <input {...register("mobile")} type="number" className="m-2 w-50" placeholder="contact no" /> <br />
 
-                    <input type="submit" value="Book now" className="m-2" />
+                    <input style={{ backgroundColor: "#0071c2", borderRadius: '6px', padding: '4px 8px', color: "white" }} type="submit" value="Book now" className="m-2" />
                 </form>
             </div>
         </div>

@@ -34,7 +34,7 @@ const MyOrders = () => {
 
     }
     return (
-        <div className="row">
+        <div className="row mx-auto m-3">
             <h2>My Orders</h2>
             {userBookings.map(booking => <div
                 className="col-md-4 my-3"
@@ -42,10 +42,10 @@ const MyOrders = () => {
             >
                 {console.log(booking)}
                 <img className="w-75 h-50" src={booking.details.img} alt="" />
-                <p>{booking._id}</p>
-                <p>{booking.details.offer}</p>
+                <p>order id: {booking._id}</p>
+                <p>name: {booking.details.offer}</p>
                 <p>status: {booking.status}</p>
-                <button onClick={() => handleDeleteBooking(booking._id)}>delete</button>
+                <button className="btn btn-danger" onClick={() => handleDeleteBooking(booking._id)}>Delete</button>
             </div>)
             }
         </div>

@@ -1,0 +1,24 @@
+#parent-one{
+    background-image: url('../../../images/gallery/1.jpg');
+    height: 100vh;
+   
+}
+#parent-two{
+    background-image: url('../../../images/gallery/2.jpg');
+    height: 100vh;
+}
+#parent-three{
+    background-image: url('../../../images/gallery/3.jpg');
+    height: 100vh;
+}
+#parent-four{
+    background-image: url('../../../images/gallery/4.jpg');
+    height: 100vh;
+}
+.hover-content {
+    display:none;
+}
+.parent:hover .hover-content {
+    display:block;
+    
+}   

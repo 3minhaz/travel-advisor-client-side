@@ -10,6 +10,7 @@ import ManageAllOrders from './components/shared/ManageAllOrders/ManageAllOrders
 import AddNewService from './components/shared/AddNewService/AddNewService';
 import MyOrders from './components/shared/MyOrders/MyOrders';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
+import Footer from './components/shared/Footer/Footer';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
