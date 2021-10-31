@@ -17,9 +17,9 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
         data.email = user.email;
-        data.offer = details.offer;
-        data.location = details.location;
-        // console.log(data);
+        data.details = details;
+        data.status = 'pending';
+        console.log(data);
         fetch(`https://thawing-sands-06340.herokuapp.com/booking`, {
             method: 'POST',
             headers: {
@@ -36,6 +36,7 @@ const PlaceOrder = () => {
                 }
             })
     };
+
 
     return (
         <div className="row row-cols-md m-4">

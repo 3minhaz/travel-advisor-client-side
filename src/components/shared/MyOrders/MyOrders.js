@@ -12,22 +12,26 @@ const MyOrders = () => {
             .then(data => setUserBookings(data))
     }, [isDeleting])
     const handleDeleteBooking = id => {
-        fetch(`https://thawing-sands-06340.herokuapp.com/myOrder/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount) {
-                    const proceed = window.confirm('are you sure delete the items')
-                    if (proceed) {
-                        alert('deleted successfully');
-                        setIsDeleting(true);
-                    }
+        const proceed = window.confirm('are you sure delete the items');
+        if (proceed) {
+            fetch(`https://thawing-sands-06340.herokuapp.com/myOrder/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json'
                 }
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+
+
+                        alert('deleted successfully');
+                        setIsDeleting(true);
+
+                    }
+                })
+        }
+
     }
     return (
         <div className="row">
@@ -36,7 +40,11 @@ const MyOrders = () => {
                 className="col-md-4 my-3"
                 key={booking._id}
             >
+                {console.log(booking)}
+                <img className="w-75" src={booking.details.img} alt="" />
                 <p>{booking._id}</p>
+                <p>{booking.details.offer}</p>
+                <p>status: {booking.status}</p>
                 <button onClick={() => handleDeleteBooking(booking._id)}>delete</button>
             </div>)
             }
