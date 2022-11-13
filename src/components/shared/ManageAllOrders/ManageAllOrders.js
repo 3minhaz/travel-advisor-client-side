@@ -8,12 +8,12 @@ const ManageAllOrders = () => {
     const [manageOrders, setManageOrders] = useState([]);
     const [isDeleted, setIsDeleted] = useState(false);
     useEffect(() => {
-        fetch('https://thawing-sands-06340.herokuapp.com/manageAllOrders')
+        fetch('https://travel-advisor.onrender.com/manageAllOrders')
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])
     useEffect(() => {
-        fetch('https://thawing-sands-06340.herokuapp.com/myOrder')
+        fetch('https://travel-advisor.onrender.com/myOrder')
             .then(res => res.json())
             .then(data => setManageOrders(data))
     }, [isDeleted])
@@ -23,7 +23,7 @@ const ManageAllOrders = () => {
     const handleServiceDelete = id => {
         const proceed = window.confirm('are you sure ,you want to delete');
         if (proceed) {
-            fetch(`https://thawing-sands-06340.herokuapp.com/manageService/${id}`, {
+            fetch(`https://travel-advisor.onrender.com/manageService/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'
@@ -45,7 +45,7 @@ const ManageAllOrders = () => {
 
     const handleUpdate = (id) => {
 
-        const url = `https://thawing-sands-06340.herokuapp.com/update/${id}`;
+        const url = `https://travel-advisor.onrender.com/update/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },

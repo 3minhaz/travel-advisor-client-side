@@ -7,7 +7,7 @@ const Offer = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch('https://thawing-sands-06340.herokuapp.com/manageAllOrders')
+        fetch('https://travel-advisor.onrender.com/manageAllOrders')
             .then(res => res.json())
             .then(data => {
                 setOffers(data)

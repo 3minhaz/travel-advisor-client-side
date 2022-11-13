@@ -7,14 +7,14 @@ const MyOrders = () => {
     const [userBookings, setUserBookings] = useState([]);
     // console.log(user.email);
     useEffect(() => {
-        fetch(`https://thawing-sands-06340.herokuapp.com/myOrder/${user.email}`)
+        fetch(`https://travel-advisor.onrender.com/myOrder/${user.email}`)
             .then(res => res.json())
             .then(data => setUserBookings(data))
     }, [isDeleting])
     const handleDeleteBooking = id => {
         const proceed = window.confirm('are you sure delete the items');
         if (proceed) {
-            fetch(`https://thawing-sands-06340.herokuapp.com/myOrder/${id}`, {
+            fetch(`https://travel-advisor.onrender.com/myOrder/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

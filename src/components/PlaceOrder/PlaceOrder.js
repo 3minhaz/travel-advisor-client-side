@@ -10,7 +10,7 @@ const PlaceOrder = () => {
     const { id } = useParams();
     const [details, setDetails] = useState({});
     useEffect(() => {
-        fetch(`https://thawing-sands-06340.herokuapp.com/book/${id}`)
+        fetch(`https://travel-advisor.onrender.com/book/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
@@ -20,7 +20,7 @@ const PlaceOrder = () => {
         data.details = details;
         data.status = 'pending';
         console.log(data);
-        fetch(`https://thawing-sands-06340.herokuapp.com/booking`, {
+        fetch(`https://travel-advisor.onrender.com/booking`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
